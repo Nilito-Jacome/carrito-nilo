@@ -18,22 +18,22 @@
   --border-color: hsl(0, 0%, 94%);
 
   /*========== Font and typography ==========*/
-  --body-font: 'Roboto', sans-serif;
+  --body-font: "Roboto", sans-serif;
   --biggest-font-size: 2rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
 
   /*========== Font weight ==========*/
   --font-medium: 500;
   --font-bold: 700;
 
   /*========== Margenes Bottom ==========*/
-  --mb-0-5: .5rem;
-  --mb-0-75: .75rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
   --mb-1: 1rem;
   --mb-1-5: 1.5rem;
   --mb-2: 2rem;
@@ -51,7 +51,7 @@ body.dark-theme {
   --first-color: hsl(182, 53%, 74%);
   --button-color: hsl(246, 16%, 12%);
   --button-color-alt: hsl(0, 0%, 28%);
-  --card-color: hsla(246, 16%, 5%, .5);
+  --card-color: hsla(246, 16%, 5%, 0.5);
   --title-color: hsl(0, 0%, 95%);
   --text-color: hsl(0, 0%, 75%);
   --body-color: hsl(249, 19%, 14%);
@@ -85,7 +85,7 @@ body {
   background-color: blue; /* borrar*/
   color: var(--text-color);
   /*For animation dark mode*/
-  transition: .4s;
+  transition: 0.4s;
 }
 /*====== Elimina viñetas de la lista ======*/
 ul {
@@ -110,10 +110,6 @@ input {
   font-size: var(--normal-font-size);
 }
 
-
-
-
-
 /*=============== REUSABLE CSS CLASSES ===============*/
 /*====== Caracteristicas de los contenedores ======*/
 .container {
@@ -125,11 +121,6 @@ input {
 .grid {
   display: grid;
 }
-
-
-
-
-
 
 /*=============== LOADER ===============*/
 /*======= Fija posicion y tamaño del loading ======*/
@@ -169,8 +160,6 @@ input {
   }
 }
 
-
-
 /*=============== HEADER & NAV ===============*/
 /*====== Caracteristicas del header ======*/
 .header {
@@ -182,7 +171,7 @@ input {
   left: 0;
   z-index: var(--z-fixed);
   /*For animation dark mode*/
-  transition: .4s;
+  transition: 0.4s;
 }
 /*====== Organiza los contenedores que estan dentro de la barra de navegacion nav ======*/
 .nav {
@@ -198,7 +187,7 @@ input {
   letter-spacing: 1px;
   display: inline-flex;
   align-items: center;
-  column-gap: .25rem;
+  column-gap: 0.25rem;
 }
 /*====== Tamaño icono dentro del contenedor logo-image ======*/
 .logotipo {
@@ -214,17 +203,17 @@ input {
 /*====== Organiza elementos del contenedor nav-list ======*/
 .nav__list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  row-gap: 2rem;
-  text-transform: uppercase;  
+  gap: 2rem;
+  text-transform: uppercase;
 }
 /*====== Cambio color tipografia en nav ======*/
 .nav__logo,
 .nav__close,
 .nav__shop,
 .nav__toggle {
-  color:var(--title-color);
+  color: var(--title-color);
 }
 /*====== Cambiar tamaño tipografia y cambiar el comportamiento del raton ======*/
 .nav__toggle,
@@ -239,7 +228,7 @@ input {
   right: -7px;
   width: 16px;
   height: 16px;
-  padding: .25rem;
+  padding: 0.25rem;
   background-color: var(--title-color);
   border-radius: 50%;
   font-size: 10px;
@@ -252,7 +241,64 @@ input {
 .nav__shop {
   position: relative;
 }
-
+/*====== Color, tamaño animacion de los link del Nav ======*/
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  font-size: var(--h2-font-size);
+  transition: 0.3s;
+}
+/*====== Efecto de cambio de color al pasar el mouse sobre los link el Nav ======*/
+.nav__link:hover {
+  color: var(--first-color);
+}
+/*====== Carcateristicas del boton para cerrar el Nav ======*/
+.nav__close {
+  font-size: 2rem;
+  position: absolute;
+  top: 0.9rem;
+  right: 1.25rem;
+  cursor: pointer;
+  display:none;
+}
+.bx.bx-grid-alt {
+  display: none;
+}
+/* Active link del Nav*/
+active-link {
+  color: var(--first-color);
+}
+/*====== Cambia la configuracion del boton que despliega el submenu START Y PRODUCTS en la rresolucion 767 hacia abajo ======*/
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    background-color: #ffffffda;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    padding: 6rem 2rem 3.5rem;
+    transition: .50s;
+  }
+  /*====== Hace que se pueda visualizar la x en esa resolucion ======*/
+  .nav__close {
+    display: initial;
+  }
+  /*====== hace que se visualice el boton que sirve para desplegar el submenu en esa resolucion ======*/
+  .bx.bx-grid-alt {
+    display: initial;
+  }
+  /*====== Organiza en columna los links en esa resolucion ======*/
+  .nav__list {
+    display:flexbox;
+    flex-direction: column;
+  }
+}
+/* Show menu Habilita que salga el menu del los link en el Nav*/
+.show-menu {
+  right: 0;
+}
 
 /*=============== HOME ===============*/
 /*====== Organiza seccion Home ======*/
@@ -264,7 +310,7 @@ input {
 /*====== Tamaño y animacion imagen Home ======*/
 .home__img {
   width: 200px;
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 /*====== Caracteristicas contenedor imagen Home ======*/
 .home__img-bg {
@@ -294,19 +340,101 @@ input {
   margin-bottom: var(--mb-3);
 }
 
-
-
 /*=============== PRODUCTS ===============*/
-
+/*====== Paddind=g de las seccion de productos ======*/
+.products {
+  padding: 7rem 0;
+}
+/*====== Hacer visibe la mano del mouse en los filtros de los productos ======*/
+.products__item {
+  cursor: pointer;
+}
+/*====== Tamaño y duracioon del efecto en la imagen de las tarjetas de los productos ======*/
 .products__img {
   width: 150px;
-  transition: .4s;
+  transition: 0.4s;
 }
-
-
-
-
-
+/*====== Caracteristicas de os contenedores de cada producto ======*/
+.products__content {
+  grid-template-columns: 200px;
+  gap: 2rem;
+  justify-content: center;
+}
+/*====== Fondo y borde de la tajeta de los productos =======*/
+.products__card {
+  background-color: var(--container-color);
+  border-radius: 0.5rem;
+}
+/*====== Tamaño y ubicacion del nombre del producto ======*/
+.products__name {
+  font-size: var(--normal-font-size);
+  margin-bottom: var(--mb-0-5);
+}
+/*====== Tamaño, ubicacion y color del precio del producto ======*/
+.products__price {
+  font-size: var(--h3-font-size);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--first-color);
+}
+/*====== Tamaño y color de la cantidad del producto ======*/
+.products__quantity {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+/*====== Efecto de movimiento en eje y al pasar el mouse sobre la foto de los productos ======*/
+.products__card:hover .products__img {
+  transform: translateY(-0.25rem);
+}
+/*====== Ubicacion de los filtros ======*/
+.products__filters {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+/*====== Saca de su ubiccion original al contenedor line ======*/
+.products__line {
+  position: relative;
+}
+/*====== Desplaza el contenedor al final de su ubicacion, y cambia su forma ======*/
+.products__line::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background-color: var(--text-color-light);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+/*====== Tamaño del stock en el filtro ======*/
+.products__stock {
+  font-size: var(--small-font-size);
+}
+/*====== Tamaño y color del titulo en los filtros ======*/
+.products__title {
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+/*====== Ajueste del contenedor de la imagen de los productos ======*/
+.products__shape {
+  background-color: var(--card-color);
+  border-radius: 0.5rem 0.5rem 0 0;
+  text-align: center;
+  padding: 0.25rem 0;
+}
+/*======  ======*/
+.products__data {
+  padding: 1rem 0 1.25rem 1rem;
+  position: relative;
+}
 
 /*=============== CART ===============*/
 /*====== Caracteristicas del Cart ======*/
@@ -319,14 +447,14 @@ cart {
   top: 0;
   right: -100%;
   padding: 3.5rem 2rem;
-  transition: .4s;
+  transition: 0.4s;
 }
 /*====== Caracteristicas tarjeta Card ======*/
 .cart__card {
   display: grid; /* probar si al eliminar sigue funcionando*/
   grid-template-columns: 1fr;
   column-gap: 1rem;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 /*====== Caracteristicas imagen cart ======*/
 .cart__img {
@@ -334,8 +462,39 @@ cart {
   height: auto;
   object-fit: cover;
 }
+/*====== Caracteristicas del titulo ======*/
+.cart__title-center {
+  font-size: var(--h2-font-size);
+  text-align: center;
+  margin-bottom: var(--mb-3);
+}
 
-
+/*=============== BUTTONS ===============*/
+/*====== Caracteristicas de los botones ======*/
+.button {
+  display: inline-block;
+  background-color: var(--button-color);
+  color: #fff;
+  padding: 1.25rem 2rem;
+  border-radius: 15px;
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+/*====== Efecto al pasar el mouse sobre el boton ======*/
+.button:hover {
+  background-color: var(--first-color);
+  color: var(--body-color);
+}
+/*====== Cambio color trasparente boton discover ======*/
+.button--transparent {
+  background-color: transparent;
+  color: var(--title-color);
+  border-radius: 5px 0 0 5px;
+}
+/*====== padding botones discover y add to cart ======*/
+.button--small {
+  padding: 1rem 1.5rem;
+}
 
 /*=============== FOOTER ===============*/
 /*====== Color seccion footer ======*/
@@ -358,7 +517,7 @@ cart {
 .footer__links {
   display: flex;
   flex-direction: column;
-  row-gap: .75rem;
+  row-gap: 0.75rem;
 }
 /*====== Color tipografia ancors link ======*/
 .footer__link {
@@ -373,7 +532,7 @@ cart {
   display: flex;
   column-gap: 1rem;
 }
-/*====== Colo y tamaño iconos social ======*/
+/*====== Color y tamaño iconos social ======*/
 .footer__social-link {
   font-size: 1.25rem;
   color: var(--text-color);
@@ -382,4 +541,3 @@ cart {
 .footer__social-link:hover {
   color: var(--title-color);
 }
-
