@@ -124,6 +124,9 @@ input {
   display: grid;
 }
 
+
+
+
 /*=============== LOADER ===============*/
 /*======= Fija posicion y tamaño del loading ======*/
 .load {
@@ -375,7 +378,7 @@ active-link {
   width: 150px;
   transition: 0.4s;
 }
-/*====== Caracteristicas de os contenedores de cada producto ======*/
+/*====== Caracteristicas de los contenedores de cada producto ======*/
 .products__content {
   grid-template-columns: 200px;
   gap: 2rem;
@@ -676,6 +679,8 @@ active-link {
   padding: 1rem 1.5rem;
 }
 
+
+
 /*=============== FOOTER ===============*/
 /*====== Color seccion footer ======*/
 .footer {
@@ -686,6 +691,10 @@ active-link {
   row-gap: 2rem;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 15px;
 }
 /*====== Tamaño y margen titulo footer ======*/
 .footer__title {
@@ -710,7 +719,8 @@ active-link {
 /*====== Organizar iconos social =====*/
 .footer__social {
   display: flex;
-  column-gap: 1rem;
+  flex-direction: column;
+  row-gap: 1rem;
 }
 /*====== Color y tamaño iconos social ======*/
 .footer__social-link {
@@ -720,4 +730,11 @@ active-link {
 /*====== Cambio color tipografia al pasar mouse iconos social ======*/
 .footer__social-link:hover {
   color: var(--title-color);
+}
+.footer__copy {
+  display: block;
+  margin: 3.5rem 0 1rem 0;
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
 }
