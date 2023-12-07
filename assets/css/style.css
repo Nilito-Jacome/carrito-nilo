@@ -466,7 +466,7 @@ active-link {
 .products__item {
   cursor: pointer;
 }
-/*====== Tamaño y duracioon del efecto en la imagen de las tarjetas de los productos ======*/
+/*====== Tamaño y duracion del efecto en la imagen de las tarjetas de los productos ======*/
 .products__img {
   width: 300px;
   height: 200px;
@@ -485,8 +485,9 @@ active-link {
 .products__card {
   display: flex;
   flex-direction: column;
-  background-color: var(--container-color);
+  background-color: var(--card-color);
   border-radius: var(--mb-0-5);
+  border: 2px solid var(--third-color);
 }
 /*====== Tamaño y ubicacion del nombre del producto ======*/
 .products__name {
