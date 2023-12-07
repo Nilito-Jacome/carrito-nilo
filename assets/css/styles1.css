@@ -65,9 +65,6 @@ button {
   overflow: hidden;
 }
 
-.section {
-  padding: 6.5rem 0 1rem;
-}
 
 .section__title {
   position: relative;
@@ -90,27 +87,13 @@ button {
   background-color: var(--first-color);
 }
 
-
-
-
-
-
-
 /*=============== HEADER & NAV ===============*/
-
-
 
 .nav__logo-icon {
   width: 480px;
   height: 480px;
   fill: var(--first-color);
 }
-
-
-
-
-
-
 
 /* Change background header */
 .scroll-header {
@@ -119,49 +102,12 @@ button {
 }
 
 
-
-/*=============== HOME ===============*/
-
-.home__button {
-  box-shadow: 0 12px 24px hsla(0, 0%, 10%, .2);
-}
-
 /*=============== BUTTONS ===============*/
 
 
 .button--gray:hover {
   background-color: hsl(0, 0%, 63%);
 }
-
-
-
-/*=============== PRODUCTS ===============*/
-
-
-.products__button {
-  border-radius: 50%;
-  padding: .625rem;
-  display: inline-flex;
-  font-size: 1.25rem;
-  position: absolute;
-  right: 1rem;
-  top: -1.25rem;
-  background-color: var(--body-color);
-  color: var(--title-color);
-  box-shadow: 0 4px 12px hsla(206, 4%, 4%, .2);
-}
-
-
-
-/* Active link products */
-.active-product .products__title {
-  color: var(--title-color);
-}
-
-/*=============== FOOTER ===============*/
-
-
-
 
 
 /*=============== SCROLL UP ===============*/
@@ -192,27 +138,8 @@ button {
   bottom: 3rem;
 }
 
-/*=============== SCROLL BAR ===============*/
-::-webkit-scrollbar {
-  width: .6rem;
-  background: hsl(0, 0%, 74%);
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(0, 0%, 17%);
-}
 
 /*=============== CART ===============*/
-
-
-.cart__empty {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: inherit;
-}
-
 
 @media screen and (min-width: 400px) {
   .cart__card {

@@ -167,6 +167,14 @@ function printProducts() {
 
 printProducts();
 
+
+
+
+
+
+
+
+
 // #3 Carrito
 let cart = window.localStorage.getItem("cartDB")
   ? JSON.parse(window.localStorage.getItem("cartDB"))
@@ -231,6 +239,8 @@ function printCart() {
   window.localStorage.setItem('cartDB', JSON.stringify(cart))
 }
 
+
+
 printCart();
 // #4 Agragar al carrito
 function addToCart(id, qty = 1) {
@@ -253,10 +263,13 @@ function addToCart(id, qty = 1) {
   printCart();
 }
 
+
 function checkStock(id, qty) {
   const product = products.find((p) => p.id === id);
   return product.quantity - qty >= 0;
 }
+
+
 
 // #5 Remover articulos
 function removeFromCart(id, qty = 1) {
@@ -273,6 +286,7 @@ function removeFromCart(id, qty = 1) {
   printCart();
 }
 
+
 // #6 Eliminar del carrito
 function deleteFromCart(id) {
   const article = cart.find((a) => a.id === id);
@@ -280,25 +294,29 @@ function deleteFromCart(id) {
   printCart();
 }
 
+
 // #7 Contar Artículos
 function totalArticles() {
   return cart.reduce((acc, article) => acc + article.qty, 0);
 }
 
+
 // #8 El total
 function totalAmount() {
   return cart.reduce((acc, article) => {
-    /* Primero recorre los productos, la base de datos para traer las propiedades y luego busca al producto por su id y lo hace coincidir con el articulo, si lo encuntra multiplica el precio del producto por la cantidad de artículos del carrito*/
+    /* Primero recorre los productos, la base de datos para traer las propiedades y luego busca al producto por su id y lo hace coincidir con el articulo, si lo encuentra multiplica el precio del producto por la cantidad de artículos del carrito*/
     const product = products.find((p) => p.id === article.id);
     return acc + product.price * article.qty;
   }, 0);
 }
+
 
 // #9 Limpiar Carrito
 function clearCart() {
   cart = [];
   printCart();
 }
+
 
 // #10 Comprar
 function checkout() {
@@ -313,6 +331,7 @@ function checkout() {
   window.alert("Thanks for your purchase");
 }
 
+
 function checkButtons() {
   if (cart.length > 0) {
     document.getElementById("cart-checkout").removeAttribute("disabled");
@@ -324,6 +343,7 @@ function checkButtons() {
     document.getElementById("cart-empty").setAttribute("disabled", "disabled");
   }
 }
+
 
 function numberToCurrency(value) {
   return new Intl.NumberFormat("en-US", {
@@ -341,6 +361,7 @@ productContainer.addEventListener("click", function (e) {
     addToCart(id);
   }
 });
+
 
 cartContainer.addEventListener("click", function (e) {
   const remove = e.target.closest(".removeToCart");
@@ -363,6 +384,8 @@ cartContainer.addEventListener("click", function (e) {
   }
 });
 
+
+
 const actionButtons = document.getElementById("action-buttons");
 
 actionButtons.addEventListener("click", function (e) {
@@ -377,3 +400,5 @@ actionButtons.addEventListener("click", function (e) {
     checkout();
   }
 });
+
+
