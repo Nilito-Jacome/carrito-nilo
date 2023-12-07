@@ -31,31 +31,6 @@ button {
 }
 
 
-
-/*========== 
-    Color changes in some parts of 
-    the website, in dark theme 
-==========*/
-.dark-theme .change-theme,
-.dark-theme .nav__toggle,
-.dark-theme .nav__shop {
-  color: hsl(0, 83%, 35%);
-}
-
-.dark-theme .scroll-header {
-  box-shadow: 0 1px 4px hsla(0, 0%, 4%, .3);
-}
-
-.scroll-header .change-theme,
-.scroll-header .nav__toggle,
-.scroll-header .nav__shop {
-  color: var(--title-color);
-}
-
-.dark-theme::-webkit-scrollbar {
-  background: hsl(0, 0%, 30%);
-}
-
 /*=============== REUSABLE CSS CLASSES ===============*/
 
 

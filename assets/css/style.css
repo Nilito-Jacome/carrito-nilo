@@ -6,7 +6,8 @@
   --header-height: 3.5rem;
 
   /*========== Colors ==========*/
-  --first-color: hsl(354, 78%, 60%);
+  --image-home: hsl(354, 78%, 60%);
+  --first-color: hsl(184, 78%, 60%);
   --second-color: blue;
   --third-color: red;
   --button-color: hsl(0, 0%, 17%);
@@ -18,11 +19,14 @@
   --body-color: hsl(206, 4%, 97%);
   --container-color: #fff;
   --border-color: hsl(0, 0%, 94%);
+  --shadow-text: hsl(184, 78%, 30%);
+  --shadow-text1: hsl(354, 78%, 30%);
+  --load-color: rgb(0, 0, 0);
 
   /*========== Font and typography ==========*/
   --body-font: "Roboto", sans-serif;
-  --biggest-font-size: 2rem;
-  --h1-font-size: 1.5rem;
+  --biggest-font-size: 3rem;
+  --h1-font-size: 2rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
   --normal-font-size: 0.938rem;
@@ -34,6 +38,7 @@
   --font-bold: 700;
 
   /*========== Margenes Bottom ==========*/
+  --mb-0-25: 0.25rem;
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
   --mb-1: 1rem;
@@ -41,6 +46,8 @@
   --mb-2: 2rem;
   --mb-2-5: 2.5rem;
   --mb-3: 3rem;
+  --mb-4: 4rem;
+  --mb-5: 5rem;
 
   /*========== z index ==========*/
   --z-tooltip: 10;
@@ -50,15 +57,21 @@
 /*=============== THEME ===============*/
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
-  --first-color: hsl(182, 53%, 74%);
-  --button-color: hsl(246, 16%, 12%);
+  --image-home: hsl(184, 78%, 60%);
+  --first-color: hsl(354, 78%, 60%);
+  --second-color: lawngreen;
+  --third-color: lime;
+  --button-color: darkgrey;
   --button-color-alt: hsl(0, 0%, 28%);
   --card-color: hsla(246, 16%, 5%, 0.5);
-  --title-color: hsl(0, 0%, 95%);
+  --title-color:ghostwhite;
   --text-color: hsl(0, 0%, 75%);
+  --text-color-light: aliceblue;
   --body-color: hsl(249, 19%, 14%);
   --container-color: hsl(246, 16%, 12%);
   --border-color: hsl(0, 0%, 20%);
+  --shadow-text: hsl(354, 78%, 60%);
+  --shadow-text1: hsl(184, 78%, 60%);
 }
 
 
@@ -134,6 +147,42 @@ input {
 
 
 
+/*========== 
+    Color changes in some parts of 
+    the website, in dark theme 
+==========*/
+/*====== color de iconos antes que el home suba en darkmode======*/
+.dark-theme .change-theme,
+.dark-theme .nav__toggle,
+.dark-theme .nav__shop {
+  color: var(--card-color);
+}
+/*====== Se colorea cuando el home toca el nav en darkmode======*/
+.dark-theme .scroll-header {
+  box-shadow: 0 1px 4px var(--title-color);
+  background-color:var(--container-color);
+  box-shadow: 0 1px 4px hsla(0, 4%, 15%, .10);
+}
+/*====== color de iconos cuando el home toca el nav ======*/
+.scroll-header .change-theme,
+.scroll-header .nav__toggle,
+.scroll-header .nav__shop {
+  color: var(--second-color);
+}
+/*====== Color del fondo del scoll bar en darkmode======*/
+.dark-theme::-webkit-scrollbar {
+  width: var(--mb-1);
+  background: var(--border-color);
+}
+
+
+
+
+
+
+
+
+
 
 /*=============== LOADER ===============*/
 /*======= Fija posicion y tamaño del loading ======*/
@@ -144,7 +193,7 @@ input {
   width: 100%;
   height: 100%;
   background-color: var(--body-color);
-  background-color: black;
+  background-color: var(--load-color);
   z-index: 1000;
   display: grid;
   place-content: center;
@@ -153,7 +202,7 @@ input {
 /*====== Fija tamaño icono loadin y tiempo del efecto ======*/
 .logotipo1 {
   fill: var(--first-color);
-  width: 50%;
+  width: 100%;
   animation: scroll 1.5s infinite;
   display: flex;
   margin: auto;
@@ -199,18 +248,18 @@ input {
   letter-spacing: 5px;
   display: inline-flex;
   align-items: center;
-  column-gap: 0.5rem;
+  column-gap: var(--mb-0-5);
 }
 /*====== Tamaño icono dentro del contenedor logo-image ======*/
 .logotipo {
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 62px;
 }
 /*====== Organiza botones dentro del contenedor nav-btns ======*/
 .nav__btns {
   display: flex;
   align-items: center;
-  column-gap: 1rem;
+  column-gap: var(--mb-1);
 }
 /*========== Button Dark/Light ==========*/
 .change-theme {
@@ -222,8 +271,8 @@ input {
 .nav__list {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 7rem;
+  align-items: left;
+  gap: 2rem;
   text-transform: uppercase;
 }
 /*====== Cambio color tipografia en nav ======*/
@@ -247,7 +296,7 @@ input {
   right: -7px;
   width: 20px;
   height: 20px;
-  padding: 0.25rem;
+  padding: var(--mb-0-25);
   background-color: var(--title-color);
   border-radius: 50%;
   font-size: var(--small-font-size);
@@ -270,11 +319,11 @@ input {
 }
 /*====== Efecto de cambio de color al pasar el mouse sobre los link el Nav ======*/
 .nav__link:hover {
-  color: var(--first-color);
+  color: var(--image-home);
 }
 /*====== Carcateristicas del boton para cerrar el Nav ======*/
 .nav__close {
-  font-size: 2rem;
+  font-size: var(--mb-2);
   position: absolute;
   top: 0.9rem;
   right: 1.25rem;
@@ -318,6 +367,12 @@ active-link {
 .show-menu {
   right: 0;
 }
+/*====== Se colorea cuando el home toca el nav ======*/
+.scroll-header {
+  box-shadow: 0 1px 4px var(--card-color);
+  background-color:var(--card-color) ;
+}
+
 
 /*=============== HOME ===============*/
 /*====== Organiza seccion Home ======*/
@@ -325,29 +380,29 @@ active-link {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 110px;
   padding-right: 0;
+  background-color: var(--card-color);
+  padding-bottom: var(--mb-0-5);
 }
 /*====== Caracteristicas contenedor imagen Home ======*/
 .home__img-bg {
-  background-color: var(--first-color);
-  width: 450px;
-  height: 350px;
+  background-color: var(--image-home);
+  width: 400px;
+  height: 606px;
   border-radius: 0 0 12px 12px;
-  padding-bottom: 1rem;
+  padding-bottom: var(--mb-1);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   transform: translateX(.10rem);
-  
 }
 /*====== Tamaño y animacion imagen Home ======*/
 .home__img {
-  padding-top: 50px;
+  padding-top: 80px;
   width: 350px;
   height: 280px;
-  padding-top: 80px;
   transition: transform 0.3s ease;
 }
 /*====== Movimiento en y imagen del home ======*/
@@ -357,19 +412,20 @@ active-link {
 /*====== Caracteristicas del contenedor datos del home ======*/
 .home__data {
   width:min(100%, 800px);
-  margin-top: 80px;
+  margin-top: 100px;
 }
 /*====== Caracteristicas tipografia titulo Home ======*/
 .home__title {
   font-size: var(--biggest-font-size);
   font-weight: var(--font-bold);
-  margin-bottom: var(--mb-1);
+  margin-bottom: var(--mb-3);
   text-align: center;
 }
 /*====== Espacio abajo de la descripcion del home ======*/
 .home__description {
-  margin-bottom: var(--mb-1-5);
+  margin-bottom: var(--mb-4);
   font-size: var(--h1-font-size);
+  padding-left: var(--mb-5);
 }
 /*====== Tamaño de la letra del nombre del producto en el home ======*/
 .home__nombre {
@@ -387,7 +443,7 @@ active-link {
   font-size: var(--h2-font-size);
   font-weight: var(--font-medium);
   color: var(--first-color);
-  margin-bottom: var(--mb-1-5);
+  margin-bottom: var(--mb-5);
 }
 /*====== Caracteristicas del contendedor donde estan los botones del home ======*/
 .home__btns {
@@ -404,7 +460,7 @@ active-link {
 /*=============== Todo PRODUCTS ===============*/
 /*====== Paddind=g de las seccion de productos ======*/
 .products {
-  padding: 2rem;
+  padding: var(--mb-5);
 }
 /*====== Hacer visibe la mano del mouse en los filtros de los productos ======*/
 .products__item {
@@ -419,18 +475,18 @@ active-link {
 /*====== Caracteristicas de los contenedores de cada producto ======*/
 .products__content {
   grid-template-columns: 200px;
-  gap: 5rem;
+  gap: var(--mb-3);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 1rem;
+  padding-top: var(--mb-5);
 }
 /*====== Fondo y borde de la tajeta de los productos =======*/
 .products__card {
   display: flex;
   flex-direction: column;
   background-color: var(--container-color);
-  border-radius: 0.5rem;
+  border-radius: var(--mb-0-5);
 }
 /*====== Tamaño y ubicacion del nombre del producto ======*/
 .products__name {
@@ -463,8 +519,8 @@ active-link {
   flex-wrap: wrap;
   justify-content:space-between;
   text-align: center;
-  margin-bottom: 1.5rem;
-  gap: 1rem;
+  margin-bottom: var(--mb-1-5);
+  gap: var(--mb-1);
 }
 /*====== Saca de su ubiccion original al contenedor line ======*/
 .products__line {
@@ -490,7 +546,7 @@ active-link {
 .products__title {
   font-size: var(--h1-font-size);
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--mb-0-5);
 }
 /*====== Ajueste del contenedor de la imagen de los productos ======*/
 .products__shape {
@@ -511,7 +567,7 @@ active-link {
   display: inline-flex;
   font-size: 2.25rem;
   position: absolute;
-  right: 1rem;
+  right: var(--mb-1);
   top: -1.25rem;
   background-color: var(--body-color);
   color: var(--title-color);
@@ -521,8 +577,12 @@ active-link {
 /* Active link products */
 .active-product .products__title {
   color: var(--title-color);
+  text-shadow: 0 0 0.5em var(--shadow-text), 0 0 0.5em var(--shadow-text1);
 }
-
+/*====== Animacion al pasar el mouse por encima de los filtros del home ======*/
+.products__title:hover {
+  text-shadow: 0 0 0.8em var(--shadow-text), 0 0 1em var(--shadow-text1);
+}
 /*=============== CART ===============*/
 /*====== Caracteristicas del Cart, saca del flujo normal a la tarjeta ======*/
 .cart {
@@ -555,7 +615,7 @@ active-link {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  row-gap: 1rem;
+  row-gap: var(--mb-1);
   max-height: 70%;
   height: auto;
   overflow: auto;
@@ -565,7 +625,7 @@ active-link {
   display: flex; /* probar si al eliminar sigue funcionando*/
   text-align: center;  
   grid-template-columns: 1fr;
-  column-gap: 1rem;
+  column-gap: var(--mb-1);
   padding: 1rem 1rem;
 }
 /*====== Caracteristicas del contenedor de la imagen del producto en el carrito ======*/
@@ -573,7 +633,7 @@ active-link {
   background-color: var(--container-color);
   width: 50%;
   height: auto;
-  padding: 0.25rem .25rem;
+  padding: 0.25rem 0.25rem;
   margin: 0 auto 1rem;
   border: 1px solid var(--border-color);
   display: flex;
@@ -591,11 +651,11 @@ active-link {
 /*====== Color del fondo del scoll bar del carrito ======*/
 .cart ::-webkit-scrollbar {
   width: var(--mb-0-75);
-  background: var(--card-color);
+  background: var(--border-color);
 }
 /*====== Color de la scrol bar del carrito ======*/
 .cart ::-webkit-scrollbar-thumb {
-  background: var(--title-color);
+  background: var(--button-color);
 }
 
 
@@ -610,7 +670,6 @@ active-link {
 /*====== Caracteristicas del titulo del carrito ======*/
 .cart__title-center {
   font-size: var(--h1-font-size);
-  font-weight: var(--font-bold);
   color: var(--second-color);
   text-align: center;
   margin-bottom: var(--mb-1);
@@ -619,7 +678,7 @@ active-link {
 .cart__title {
   font-size: var(--h3-font-size);
   
-  margin-bottom: .5rem;
+  margin-bottom: var(--mb-0-5);
   display: flex;
   justify-content: space-between;
 }
@@ -649,7 +708,7 @@ active-link {
   justify-content: center;
   align-items: center;
   height: inherit;
-  gap: 0.5rem;
+  gap: var(--mb-0-5);
 }
 /*====== Disposicion del contenedor del boton limpiar ======*/
 #cart-empty {
@@ -658,7 +717,7 @@ active-link {
   justify-content: center;
   align-items: center;
   height: inherit;
-  gap: 0.5rem;
+  gap: var(--mb-0-5);
 }
 
 /*====== Caracteristicas del contenedor del subtotal del carrito ======*/
@@ -679,7 +738,7 @@ active-link {
 .cart__amount-content {
   display: grid;
   grid-template-columns: 2fr 1fr .5fr;
-  column-gap: 1rem;
+  column-gap: var(--mb-3);
   align-items: baseline;
 }
 /*====== Ubicacion de los elementos que tiene el contenedor principal donde esta la cantidad de producto en el carrito ======*/
@@ -699,7 +758,7 @@ active-link {
 /*====== Caracteristicas de los botones que estan a los lados del numero de la cantidad de producto en el carrito ======*/
 .cart__amount-box {
   display: inline-flex;
-  padding: .25rem;
+  padding: var(--mb-0-25);
   background-color: var(--container-color);
   border: 1px solid var(--border-color);
   cursor: pointer;
@@ -713,7 +772,7 @@ active-link {
 }
 /*====== Caracteristicas el contenedor donde esta cantidad y total de los producto que contiene el carrito ======*/
 .cart__prices {
-  margin-top: 2rem;
+  margin-top: var(--mb-2);
   display: flex;
   justify-content: space-between;
 }
@@ -743,7 +802,7 @@ active-link {
 .button {
   display: inline-block;
   background-color: var(--button-color);
-  color: #fff;
+  color: var(--container-color);
   padding: 1.25rem 2rem;
   border-radius: 15px;
   font-weight: var(--font-medium);
@@ -779,7 +838,7 @@ active-link {
 /*====== Organizar contenedor footer section ======*/
 .footer__container {
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
+  padding-bottom: var(--mb-1);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -795,10 +854,11 @@ active-link {
 /*====== Organiza elementos dentro contenedores list y links ======*/
 .footer__list,
 .footer__links {
+  font-size: var(--h2-font-size);
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: var(--mb-1);
+  row-gap: var(--mb-2);
 }
 /*====== Color tipografia ancors link ======*/
 .footer__link {
@@ -807,13 +867,14 @@ active-link {
 /*====== Cambio color tipografia al pasar mouse ancors link ======*/
 .footer__link:hover {
   color: var(--title-color); /* para cambiar el color*/
+  text-shadow: 0 0 0.5em var(--shadow-text), 0 0 0.5em var(--shadow-text1);
 }
 /*====== Organizar iconos social =====*/
 .footer__social {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 1rem;
+  row-gap: var(--mb-1);
 }
 /*====== Color y tamaño iconos social ======*/
 .footer__social-link {
@@ -823,6 +884,7 @@ active-link {
 /*====== Cambio color tipografia al pasar mouse iconos social ======*/
 .footer__social-link:hover {
   color: var(--title-color);
+  text-shadow: 0 0 0.5em var(--shadow-text), 0 0 0.5em var(--shadow-text1);
 }
 .footer__copy {
   display: block;
@@ -832,30 +894,14 @@ active-link {
   color: var(--text-color);
 }
 
-/*=============== SCROLL UP ===============*/
-
-.scrollup:hover {
-  opacity: 0;
-  position: absolute;
-}
-.scrollup__icon {
-  font-size: var(--h1-font-size);
-  color: var(--first-color);
-  background-color: var(--card-color);
-  display: flex;
-  justify-content: right;
-  position: relative;
-}
-
-
 /*=============== SCROLL BAR ===============*/
 /*====== Color del fondo del scoll bar ======*/
 ::-webkit-scrollbar {
   width: var(--mb-1);
-  background: hsl(0, 4%, 5%);
+  background: var(--border-color);
 }
 /*====== Color de la scrol bar ======*/
 ::-webkit-scrollbar-thumb {
-  background: hsl(0, 94%, 49%);
+  background: var(--button-color);
 }
 
