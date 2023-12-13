@@ -82,7 +82,15 @@ body.dark-theme {
   padding: 0;
   margin: 0;
 }
-
+:root {
+  --biggest-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1rem;
+  --h3-font-size: 0.8rem;
+  --normal-font-size: 0.65rem;
+  --small-font-size: 0.5rem;
+  --smaller-font-size: 0.25rem;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -120,23 +128,9 @@ input {
   font-size: var(--normal-font-size);
 }
 
-@media screen and (min-width: 1440px) {
-  :root {
-    --biggest-font-size: 4rem;
-    --h1-font-size: 3rem;
-    --h2-font-size: 2.5rem;
-    --h3-font-size: 2rem;
-    --normal-font-size: 1.5rem;
-    --small-font-size: 1.25rem;
-    --smaller-font-size: 1rem;
-  }
-}
-
-
 /*=============== REUSABLE CSS CLASSES ===============*/
 /*====== Caracteristicas de los contenedores ======*/
 .container {
-  max-width: 1441px;
   margin: auto;
   padding: 0 30px;
 }
@@ -155,13 +149,11 @@ input {
 .dark-theme .change-theme,
 .dark-theme .nav__toggle,
 .dark-theme .nav__shop {
-  color: var(--card-color);
+  color: var(--text-color-light);
 }
 /*====== Se colorea cuando el home toca el nav en darkmode======*/
 .dark-theme .scroll-header {
-  box-shadow: 0 1px 4px var(--title-color);
   background-color:var(--container-color);
-  box-shadow: 0 1px 4px hsla(0, 4%, 15%, .10);
 }
 /*====== color de iconos cuando el home toca el nav ======*/
 .scroll-header .change-theme,
@@ -174,12 +166,6 @@ input {
   width: var(--mb-1);
   background: var(--border-color);
 }
-
-
-
-
-
-
 
 
 
@@ -338,15 +324,15 @@ active-link {
   color: var(--first-color);
 }
 /*====== Cambia la configuracion del boton que despliega el submenu START Y PRODUCTS en la rresolucion 767 hacia abajo ======*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .nav__menu {
     position: fixed;
-    background-color: #ffffffda;
+    background-color: var(--container-color);
     top: 0;
     right: -100%;
-    width: 50%;
+    width: 30%;
     height: 100%;
-    padding: 6rem 2rem 3.5rem;
+    padding: 6rem 1.5rem;
     transition: .50s;
   }
   /*====== Hace que se pueda visualizar la x en esa resolucion ======*/
@@ -378,9 +364,9 @@ active-link {
 /*====== Organiza seccion Home ======*/
 .home__container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
-  gap: 110px;
+  gap: 50px;
   padding-right: 0;
   background-color: var(--card-color);
   padding-bottom: var(--mb-0-5);
@@ -389,7 +375,7 @@ active-link {
 .home__img-bg {
   background-color: var(--image-home);
   width: 400px;
-  height: 606px;
+  height: 97vh;
   border-radius: 0 0 12px 12px;
   padding-bottom: var(--mb-1);
   display: flex;
@@ -400,9 +386,9 @@ active-link {
 }
 /*====== Tamaño y animacion imagen Home ======*/
 .home__img {
-  padding-top: 80px;
-  width: 350px;
-  height: 280px;
+  padding-top: 60px;
+  width: 220px;
+  height: 200px;
   transition: transform 0.3s ease;
 }
 /*====== Movimiento en y imagen del home ======*/
@@ -412,20 +398,20 @@ active-link {
 /*====== Caracteristicas del contenedor datos del home ======*/
 .home__data {
   width:min(100%, 800px);
-  margin-top: 100px;
+  margin-top: 60px;
 }
 /*====== Caracteristicas tipografia titulo Home ======*/
 .home__title {
   font-size: var(--biggest-font-size);
   font-weight: var(--font-bold);
-  margin-bottom: var(--mb-3);
+  margin-bottom: var(--mb-1);
   text-align: center;
 }
 /*====== Espacio abajo de la descripcion del home ======*/
 .home__description {
-  margin-bottom: var(--mb-4);
+  margin-bottom: var(--mb-2);
   font-size: var(--h1-font-size);
-  padding-left: var(--mb-5);
+  padding-left: var(--mb-1);
 }
 /*====== Tamaño de la letra del nombre del producto en el home ======*/
 .home__nombre {
@@ -443,7 +429,7 @@ active-link {
   font-size: var(--h2-font-size);
   font-weight: var(--font-medium);
   color: var(--first-color);
-  margin-bottom: var(--mb-5);
+  margin-bottom: var(--mb-2);
 }
 /*====== Caracteristicas del contendedor donde estan los botones del home ======*/
 .home__btns {
@@ -458,28 +444,28 @@ active-link {
 
 
 /*=============== Todo PRODUCTS ===============*/
-/*====== Paddind=g de las seccion de productos ======*/
+/*====== Paddindg de las seccion de productos ======*/
 .products {
-  padding: var(--mb-5);
+  padding: var(--mb-3);
 }
 /*====== Hacer visibe la mano del mouse en los filtros de los productos ======*/
 .products__item {
   cursor: pointer;
 }
 /*====== Tamaño y duracion del efecto en la imagen de las tarjetas de los productos ======*/
-.products__img {
-  width: 300px;
-  height: 200px;
+img.products__img {
+  width: 180px;
+  height: 100px;
   transition: 0.4s;
 }
 /*====== Caracteristicas de los contenedores de cada producto ======*/
 .products__content {
-  grid-template-columns: 200px;
-  gap: var(--mb-3);
+  grid-template-columns: 300px;
+  gap: var(--mb-1);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: var(--mb-5);
+  padding-top: var(--mb-1);
 }
 /*====== Fondo y borde de la tajeta de los productos =======*/
 .products__card {
@@ -491,7 +477,7 @@ active-link {
 }
 /*====== Tamaño y ubicacion del nombre del producto ======*/
 .products__name {
-  font-size: var(--h1-font-size);
+  font-size: var(--h2-font-size);
   margin-bottom: var(--mb-0-5);
   padding-top: 10px;
 }
@@ -566,7 +552,7 @@ active-link {
   border-radius: 50%;
   padding: .625rem;
   display: inline-flex;
-  font-size: 2.25rem;
+  font-size: 1rem;
   position: absolute;
   right: var(--mb-1);
   top: -1.25rem;
@@ -584,17 +570,21 @@ active-link {
 .products__title:hover {
   text-shadow: 0 0 0.8em var(--shadow-text), 0 0 1em var(--shadow-text1);
 }
+
+
+
+
 /*=============== CART ===============*/
 /*====== Caracteristicas del Cart, saca del flujo normal a la tarjeta ======*/
 .cart {
   position: fixed;
   background-color: var(--container-color);
   z-index: var(--z-fixed);
-  width: 30%;
+  width: 31%;
   height: 100vh;
   top: 0;
   right: -100%;
-  padding: 3rem 1rem;
+  padding: var(--mb-0-25) var(--mb-0-25);
   transition: 0.4s;
 }
 /*====== Muestra el contenedor del carrito ======*/
@@ -607,8 +597,8 @@ active-link {
   font-size: var(--h1-font-size);
   color: var(--title-color);
   position: absolute;
-  top: 1.25rem;
-  right: .9rem;
+  top: var(--mb-0-25);
+  right: 0;
   cursor: pointer;
 }
 /*====== Caracteristicas del contenedor para cada producto del carrito ======*/
@@ -616,53 +606,38 @@ active-link {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  row-gap: var(--mb-1);
-  max-height: 70%;
+  row-gap: var(--mb-0-5);
+  max-height: 55%;
   height: auto;
   overflow: auto;
 }
 /*====== Caracteristicas tarjeta Card ======*/
 .cart__card {
-  display: flex; /* probar si al eliminar sigue funcionando*/
+  display: flex;
   text-align: center;  
   grid-template-columns: 1fr;
-  column-gap: var(--mb-1);
-  padding: 1rem 1rem;
+  padding: var(--mb-0-25);
+  border: 2px solid var(--border-color);
 }
 /*====== Caracteristicas del contenedor de la imagen del producto en el carrito ======*/
 .cart__box {
-  background-color: var(--container-color);
-  width: 50%;
-  height: auto;
+  width: 100%;
+  height: 60px;
   padding: 0.25rem 0.25rem;
-  margin: 0 auto 1rem;
-  border: 1px solid var(--border-color);
   display: flex;
   text-align: center;
   justify-content: center;
 }
 /*====== Caracteristicas del contenedor del detalle del producto en el carrito ======*/
 .cart__details {
-  height: 100px;
-  width: 270px;
+  height: 60px;
+  width: 400px;
+  padding: 0.25rem 0.25rem;
 }
-
-
-/*=============== SCROLL BAR CART ===============*/
-/*====== Color del fondo del scoll bar del carrito ======*/
-.cart ::-webkit-scrollbar {
-  width: var(--mb-0-75);
-  background: var(--border-color);
-}
-/*====== Color de la scrol bar del carrito ======*/
-.cart ::-webkit-scrollbar-thumb {
-  background: var(--button-color);
-}
-
 
 /*====== Caracteristicas imagen cart ======*/
 .cart__img {
-  width: 100%;
+  width: 80%;
   height: auto;
   object-fit: cover;
   align-content: center;
@@ -673,34 +648,32 @@ active-link {
   font-size: var(--h1-font-size);
   color: var(--second-color);
   text-align: center;
-  margin-bottom: var(--mb-1);
+  margin-bottom: var(--mb-0-25);
 }
 /*====== Caracteristicas del titulo del producto en el carrito ======*/
 .cart__title {
-  font-size: var(--h3-font-size);
-  
-  margin-bottom: var(--mb-0-5);
+  font-size: var(--normal-font-size);
+  margin-bottom: var(--mb-0-25);
   display: flex;
   justify-content: space-between;
 }
 /*====== Caracteristicas del Stock del carrito ======*/
 .cart__stock {
   display: block;
-  font-size: var(--normal-font-size);
   color: var(--text-color);
-  margin-bottom: var(--mb-0-5);
 }
 /*====== Caracteristicas del contenedor del prices del carrito ======*/
 .cart__prices {
-  font-size: var(--small-font-size);
+  font-size: var(--normal-font-size);
   color: var(--first-color);
-  margin-bottom: var(--mb-0-5);
+  margin-top: var(--mb-0-75);
+  margin-bottom: var(--mb-0-75);
 }
 /*====== Caracteristicas del contenedor de los botones del carrito ======*/
 .cart__checkout {
   display: flex;
-  justify-content:space-between;
-  padding: 0 50px;
+  justify-content:center;
+  gap: var(--mb-2);
 }
 /*====== Disposicion del contenedor del boton comprar ======*/
 #cart-checkout {
@@ -709,7 +682,8 @@ active-link {
   justify-content: center;
   align-items: center;
   height: inherit;
-  gap: var(--mb-0-5);
+  gap: var(--mb-0-25);
+  font-size: var(--h2-font-size);
 }
 /*====== Disposicion del contenedor del boton limpiar ======*/
 #cart-empty {
@@ -718,28 +692,26 @@ active-link {
   justify-content: center;
   align-items: center;
   height: inherit;
-  gap: var(--mb-0-5);
+  gap: var(--mb-0-25);
+  font-size: var(--h2-font-size);
 }
-
 /*====== Caracteristicas del contenedor del subtotal del carrito ======*/
 .cart__subtotal {
   display: flex;
   justify-content: space-between;
-  font-size: var(--small-font-size);
-  margin: var(--mb-0-75) 0;
+  font-size: var(--normal-font-size);
+  margin-top: var(--mb-0-25);
 }
 /*====== Caracteriticas del subtotal del precio del producto en el carrito ======*/
 .cart__subtotal-price {
-  font-size: var(--normal-font-size);
   color: var(--first-color);
   font-weight: var(--font-medium);
 }
 /*====== Caracteristicas de los contenedores donde se encuentra la cantidad de producto en el carrito ======*/
-.cart__amount,
 .cart__amount-content {
   display: grid;
   grid-template-columns: 2fr 1fr .5fr;
-  column-gap: var(--mb-3);
+  column-gap: var(--mb-0-25);
   align-items: baseline;
 }
 /*====== Ubicacion de los elementos que tiene el contenedor principal donde esta la cantidad de producto en el carrito ======*/
@@ -749,7 +721,7 @@ active-link {
 }
 /*====== Ubicacion del segundo contenedor de la cantidad de producto en el carrito ======*/
 .cart__amount-content {
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 /*====== Centrado del numero de la cantidad del producto con los otros elementos en el contenedor =====*/
 .cart__amount-number {
@@ -764,6 +736,9 @@ active-link {
   border: 1px solid var(--border-color);
   cursor: pointer;
 }
+.cart__amount-box:hover {
+  background-color: var(--first-color);
+}
 /*====== caracteristicas del boton de eliminar producto en el carrito ======*/
 .cart__amount-trash {
   font-size: var(--h2-font-size);
@@ -771,11 +746,15 @@ active-link {
   font-weight: var(--font-bold);
   cursor: pointer;
 }
+/*====== Resaltado de la tipografia al pasar mouse sobre el boton ======*/
+.cart__amount-trash:hover {
+  text-shadow: 0 0 0.5em var(--shadow-text), 0 0 0.5em var(--shadow-text1);
+}
 /*====== Caracteristicas el contenedor donde esta cantidad y total de los producto que contiene el carrito ======*/
 .cart__prices {
-  margin-top: var(--mb-2);
   display: flex;
   justify-content: space-between;
+  padding: var(--mb-0-25) var(--mb-0-5);
 }
 /*====== Color de la cantidad y total de los productos que contiene el carrito ======*/
 .cart__prices-item,
@@ -792,7 +771,16 @@ active-link {
   font-weight: var(--font-medium);
 }
 
-
+/*=============== SCROLL BAR CART ===============*/
+/*====== Color del fondo del scoll bar del carrito ======*/
+.cart ::-webkit-scrollbar {
+  width: var(--mb-0-75);
+  background: var(--border-color);
+}
+/*====== Color de la scrol bar del carrito ======*/
+.cart ::-webkit-scrollbar-thumb {
+  background: var(--button-color);
+}
 
 
 
@@ -804,7 +792,7 @@ active-link {
   display: inline-block;
   background-color: var(--button-color);
   color: var(--container-color);
-  padding: 1.25rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 15px;
   font-weight: var(--font-medium);
   transition: 0.3s;
@@ -834,12 +822,12 @@ active-link {
 }
 /*====== padding para la seccion del footer =======*/
 .section {
-  padding: 1.5rem 30px 0.5rem;
+  padding: 1rem 30px 0.5rem;
 }
 /*====== Organizar contenedor footer section ======*/
 .footer__container {
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: var(--mb-1);
+  border-bottom: 1px solid var(--text-color);
+  padding-bottom: var(--mb-0-5);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -848,7 +836,7 @@ active-link {
 /*====== Tamaño y margen titulo footer ======*/
 .footer__title {
   font-size: var(--h1-font-size);
-  margin-bottom: var(--mb-1-5);
+  margin-bottom: var(--mb-1);
   display: flex;
   justify-content: center;
 }
@@ -859,7 +847,7 @@ active-link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: var(--mb-2);
+  row-gap: var(--mb-0-75);
 }
 /*====== Color tipografia ancors link ======*/
 .footer__link {
@@ -875,7 +863,7 @@ active-link {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: var(--mb-1);
+  row-gap: var(--mb-0-5);
 }
 /*====== Color y tamaño iconos social ======*/
 .footer__social-link {
@@ -889,7 +877,7 @@ active-link {
 }
 .footer__copy {
   display: block;
-  margin: 1.5rem 0 1rem 0;
+  margin: 1rem 0 1rem 0;
   text-align: center;
   font-size: var(--h1-font-size);
   color: var(--text-color);
@@ -906,3 +894,21 @@ active-link {
   background: var(--button-color);
 }
 
+
+
+
+
+
+/*
+:root {
+    --biggest-font-size: 4rem;
+    --h1-font-size: 3rem;
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 2rem;
+    --normal-font-size: 1.5rem;
+    --small-font-size: 1.25rem;
+    --smaller-font-size: 1rem;
+}
+  */
+
+  

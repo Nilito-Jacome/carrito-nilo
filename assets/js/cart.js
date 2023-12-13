@@ -138,6 +138,7 @@ const products = window.localStorage.getItem("productsDB")
   : db;
 
 // #2 Pintar los productos en el DOM
+
 const productContainer = document.getElementById("products__content");
 function printProducts() {
   let html = "";
@@ -166,9 +167,6 @@ function printProducts() {
 }
 
 printProducts();
-
-
-
 
 
 
@@ -239,9 +237,9 @@ function printCart() {
   window.localStorage.setItem('cartDB', JSON.stringify(cart))
 }
 
-
-
 printCart();
+
+
 // #4 Agragar al carrito
 function addToCart(id, qty = 1) {
   const product = products.find((p) => p.id === id);
@@ -262,6 +260,10 @@ function addToCart(id, qty = 1) {
   }
   printCart();
 }
+
+
+
+
 
 
 function checkStock(id, qty) {
@@ -400,5 +402,4 @@ actionButtons.addEventListener("click", function (e) {
     checkout();
   }
 });
-
 

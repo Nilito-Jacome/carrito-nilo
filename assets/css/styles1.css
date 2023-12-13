@@ -335,3 +335,55 @@ button {
     right: 3rem;
   }
 }
+
+
+/*******************************/
+
+
+@media screen and (min-width: 900000px) {
+  :root {
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1rem;
+    --h3-font-size: 0.8rem;
+    --normal-font-size: 0.65rem;
+    --small-font-size: 0.5rem;
+    --smaller-font-size: 0.25rem;
+  }
+/*=============== HOME ===============*/
+/*====== Organiza seccion Home ======*/
+.home__container {
+  gap: 60px;
+  padding-bottom: var(--mb-0-25);
+}
+/*====== Caracteristicas contenedor imagen Home ======*/
+.home__img-bg {
+  width: 430px;
+  height: 95vh;
+  padding-bottom: var(--mb-0-25);
+}
+/*====== Tamaño y animacion imagen Home ======*/
+.home__img {
+  padding-top: 30px;
+  width: 250px;
+  height: 45vh;
+}
+/*====== Caracteristicas del contenedor datos del home ======*/
+.home__data {
+  width:min(100%, 800px);
+  margin-top: 60px;
+}
+/*====== Caracteristicas tipografia titulo Home ======*/
+.home__title {
+  margin-bottom: var(--mb-1);
+}
+/*====== Espacio abajo de la descripcion del home ======*/
+.home__description {
+  margin-bottom: var(--mb-2);
+}
+/*====== Caracteristicas tipografia precio Home ======*/
+.home__price {
+  margin-bottom: var(--mb-2);
+}
+
+}
