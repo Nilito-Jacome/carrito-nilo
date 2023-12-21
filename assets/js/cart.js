@@ -5,10 +5,10 @@ const db = [
   {
     id: 1,
     name: "Laptop_Acer",
-    price: 689,
+    price: 690,
     image: "assets/img/laptop/Asus-2230.jpg",
     category: "Laptop_clasic",
-    quantity: 4,
+    quantity: 23,
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const db = [
     price: 788,
     image: "assets/img/laptop/Hp-beats.jpg",
     category: "Laptop_clasic",
-    quantity: 5,
+    quantity: 50,
   },
   {
     id: 4,
@@ -103,7 +103,7 @@ const db = [
     name: "Keyboard_Del",
     price: 18,
     image: "assets/img/teclado/Del-25.jpg",
-    category: "Usb_plug_&_Play",
+    category: "Usb",
     quantity: 11,
   },
   {
@@ -111,7 +111,7 @@ const db = [
     name: "Keyboard_Hp",
     price: 22,
     image: "assets/img/teclado/Hp-1318.png",
-    category: "Usb_plug_&_Play",
+    category: "Usb",
     quantity: 32,
   },
   {
@@ -119,7 +119,7 @@ const db = [
     name: "Keyboard_Hp",
     price: 28,
     image: "assets/img/teclado/Hp-4569.jpg",
-    category: "Usb_plug_&_Play",
+    category: "Usb",
     quantity: 18,
   },
   {
@@ -127,15 +127,17 @@ const db = [
     name: "Keyboard_Lenovo",
     price: 21,
     image: "assets/img/teclado/Lenovo-123.jpg",
-    category: "Usb_plug_&_Play",
-    quantity: 23,
+    category: "Usb",
+    quantity: 26,
   },
   
 ];
 
-const products = window.localStorage.getItem("productsDB")
-  ? JSON.parse(window.localStorage.getItem("productsDB"))
-  : db;
+const categoryContainer = document.getElementById("products__content");
+//const products = window.localStorage.getItem("productsDB")
+  
+  // : db;
+  const products = db;
 
 // #2 Pintar los productos en el DOM
 
@@ -144,9 +146,9 @@ function printProducts() {
   let html = "";
   for (const product of products) {
     html += `
-    <article class="products__card Laptop_clasic">
+    <article class="products__card ${product.category}">
       <div class="products__shape">
-        <img src="${product.image}" alt="${product.name}" class="products__img">
+        <img src="${product.image}" alt="Laptop_clasic" class="products__img">
       </div>
 
       <div class="products__data">
